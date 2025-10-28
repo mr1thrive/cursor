@@ -1,0 +1,7 @@
+
+1. Identify the bugs and errors in the old code and list them.
+2. Fix unclosed tags, make consistent padding and margin errors.
+3. Use consistent font.
+4. Refactor the code base.
+5. Add subtle transition animations, responsive font scaling, highlight active plan, use CSS Grid or Flexbox for multi-plan layout, make the layout adjust dynamically based on the card’s container, keyboard focus state.
+6. Add banner and dark mode toggle.

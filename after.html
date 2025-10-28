@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Pricing Plans</title>
+
+<style>
+/* -------------------- */
+/* Theme Variables */
+/* -------------------- */
+:root {
+  --font-main: "Segoe UI", Arial, sans-serif;
+  --color-bg: #f5f5f5;
+  --color-card-bg: #ffffff;
+  --color-text: #333;
+  --color-primary: #1e40af;
+  --color-primary-hover: #1d3a9a;
+  --color-accent: #059669;
+  --color-highlight: #e0f2fe;
+  --radius: 10px;
+  --shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  --transition: all 0.25s ease-in-out;
+}
+
+/* Dark Mode Variables */
+body.dark {
+  --color-bg: #111827;
+  --color-card-bg: #1f2937;
+  --color-text: #f3f4f6;
+  --color-primary: #3b82f6;
+  --color-primary-hover: #2563eb;
+  --color-accent: #34d399;
+  --color-highlight: #172554;
+  --shadow: 0 0 10px rgba(255, 255, 255, 0.08);
+}
+
+/* -------------------- */
+/* Base Styles */
+/* -------------------- */
+body {
+  font-family: var(--font-main);
+  background-color: var(--color-bg);
+  color: var(--color-text);
+  margin: 0;
+  padding: 0;
+  transition: var(--transition);
+}
+
+/* -------------------- */
+/* Banner / Header */
+/* -------------------- */
+.banner {
+  text-align: center;
+  background: var(--color-primary);
+  color: white;
+  padding: 40px 20px;
+  position: relative;
+}
+
+.banner h1 {
+  font-size: clamp(24px, 3vw, 36px);
+  margin: 0;
+  font-weight: 700;
+}
+
+.banner p {
+  font-size: clamp(14px, 1.5vw, 18px);
+  margin-top: 8px;
+  opacity: 0.9;
+}
+
+/* Dark mode toggle */
+.toggle-container {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+}
+
+.toggle-container input {
+  display: none;
+}
+
+.toggle-label {
+  display: flex;
+  align-items: center;
+  background-color: #fff3;
+  border: 1px solid rgba(255,255,255,0.3);
+  padding: 6px 12px;
+  border-radius: 20px;
+  font-size: 14px;
+  cursor: pointer;
+  color: #fff;
+  transition: var(--transition);
+}
+
+body.dark .toggle-label {
+  background-color: rgba(0,0,0,0.3);
+  color: #f3f4f6;
+}
+
+/* -------------------- */
+/* Pricing Container */
+/* -------------------- */
+.pricing-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 20px;
+  width: min(90%, 1000px);
+  margin: 40px auto;
+  transition: var(--transition);
+}
+
+/* -------------------- */
+/* Pricing Cards */
+/* -------------------- */
+.pricing-card {
+  background-color: var(--color-card-bg);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  padding: 24px;
+  text-align: left;
+  transition: var(--transition);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.pricing-card:hover,
+.pricing-card:focus-within {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+}
+
+.pricing-card.featured {
+  border: 2px solid var(--color-primary);
+  background-color: var(--color-highlight);
+}
+
+/* -------------------- */
+/* Typography */
+/* -------------------- */
+.pricing-title {
+  font-size: clamp(18px, 2vw, 22px);
+  font-weight: 600;
+  margin: 0 0 10px 0;
+}
+
+.pricing-price {
+  font-size: clamp(16px, 1.5vw, 20px);
+  color: var(--color-accent);
+  margin-bottom: 15px;
+}
+
+/* -------------------- */
+/* Features List */
+/* -------------------- */
+.feature-list {
+  list-style: none;
+  margin: 0 0 15px 0;
+  padding: 0;
+  flex-grow: 1;
+}
+
+.feature-list li {
+  padding: 8px 0;
+  border-bottom: 1px solid #eee;
+  font-size: clamp(14px, 1vw, 16px);
+}
+
+/* -------------------- */
+/* Buttons */
+/* -------------------- */
+.btn {
+  display: inline-block;
+  background-color: var(--color-primary);
+  color: #fff;
+  font-family: inherit;
+  font-size: clamp(14px, 1vw, 16px);
+  font-weight: 500;
+  padding: 10px 20px;
+  border: none;
+  border-radius: var(--radius);
+  cursor: pointer;
+  text-align: center;
+  transition: var(--transition);
+}
+
+.btn:hover {
+  background-color: var(--color-primary-hover);
+}
+
+.btn:focus {
+  outline: 2px solid var(--color-primary);
+  outline-offset: 4px;
+}
+</style>
+</head>
+
+<body>
+
+<header class="banner">
+  <div class="toggle-container">
+    <input type="checkbox" id="theme-toggle">
+    <label for="theme-toggle" class="toggle-label">🌙 Dark Mode</label>
+  </div>
+  <h1>Choose Your Plan</h1>
+  <p>Simple, transparent pricing. Upgrade anytime.</p>
+</header>
+
+<main class="pricing-container">
+  <article class="pricing-card">
+    <h2 class="pricing-title">Basic Plan</h2>
+    <p class="pricing-price">$9.99 / month</p>
+    <ul class="feature-list">
+      <li>1 GB Storage</li>
+      <li>Basic Support</li>
+      <li>All Core Features</li>
+    </ul>
+    <button class="btn">Start Trial</button>
+  </article>
+
+  <article class="pricing-card featured">
+    <h2 class="pricing-title">Pro Plan</h2>
+    <p class="pricing-price">$19.99 / month</p>
+    <ul class="feature-list">
+      <li>10 GB Storage</li>
+      <li>Priority Support</li>
+      <li>Advanced Analytics</li>
+    </ul>
+    <button class="btn">Choose Plan</button>
+  </article>
+
+  <article class="pricing-card">
+    <h2 class="pricing-title">Enterprise Plan</h2>
+    <p class="pricing-price">$49.99 / month</p>
+    <ul class="feature-list">
+      <li>Unlimited Storage</li>
+      <li>Dedicated Account Manager</li>
+      <li>Custom Integrations</li>
+    </ul>
+    <button class="btn">Contact Sales</button>
+  </article>
+</main>
+
+<script>
+/* -------------------- */
+/* Dark Mode Toggle JS  */
+/* -------------------- */
+const toggle = document.getElementById('theme-toggle');
+toggle.addEventListener('change', () => {
+  document.body.classList.toggle('dark', toggle.checked);
+});
+</script>
+
+</body>
+</html>
